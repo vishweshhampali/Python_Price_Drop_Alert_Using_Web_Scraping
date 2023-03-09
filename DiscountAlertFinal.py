@@ -1,6 +1,6 @@
 #https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
 #https://github.com/AlexTheAnalyst/PortfolioProjects/blob/main/Amazon%20Web%20Scraper%20Project.ipynb
-
+#https://medium.com/@modularcoder/writing-a-coding-tutorial-article-on-medium-the-technical-parts-34ea1e5fcd61
 """
 Importing libraries
 """
@@ -25,7 +25,7 @@ def send_email(subject, body, sender, recipients, password):
     smtp_server.quit()
 
 sender = "vaidya.kare@gmail.com"
-recipients = ["anilect12@gmail.com"]
+recipients = ["vishweshhampali@gmail.com"]
 password = "yfvjflmehenezdyl"
 
 
@@ -33,11 +33,13 @@ password = "yfvjflmehenezdyl"
 """
 Connect to Website and pull in data
 """
+x = 'https://www.flipkart.com/logitech-gamepad-f310/p/itmdyfyfrzch29cf?pid=ACCDYFXZ6QEUZEFZ&lid=LSTACCDYFXZ6QEUZEFZIISO8W&marketplace=FLIPKART&q=controller&store=4rr%2Fkm5%2Fr39%2Fa7g%2Fy7a&spotlightTagId=TrendingId_4rr%2Fkm5%2Fr39%2Fa7g%2Fy7a&srno=s_1_5&otracker=AS_QueryStore_OrganicAutoSuggest_1_9_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_9_na_na_na&fm=search-autosuggest&iid=01b3d6f3-06c0-449b-a2af-9d3fd8e91cbb.ACCDYFXZ6QEUZEFZ.SEARCH&ppt=sp&ppn=sp&ssid=mjbnhasl2o0000001678195519116&qH=594c103f2c6e04c3'
+y = 'https://www.amazon.in/Logitech-G-940-000112-F310-Gamepad/dp/B0757QFBRL/ref=sr_1_4?crid=YSVEB0DD6CAB&keywords=logitech+controller+for+pc&qid=1678195661&s=computers&sprefix=logitech+controller+for+pc%2Ccomputers%2C182&sr=1-4'
+#Flipkart_URL = 'https://www.flipkart.com/canon-eos-3000d-dslr-camera-1-body-18-55-mm-lens/p/itm6f665fea97bc2?pid=CAMF3DHJURPEMNRN&lid=LSTCAMF3DHJURPEMNRN5POEJU&marketplace=FLIPKART&q=canon+1200d+camera&store=jek%2Fp31%2Ftrv&srno=s_1_1&otracker=AS_QueryStore_OrganicAutoSuggest_1_8_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_8_na_na_na&fm=organic&iid=1c742629-dbc8-4eae-b0c9-623d0d7c1772.CAMF3DHJURPEMNRN.SEARCH&ppt=hp&ppn=homepage&ssid=3c3nanvia80000001676980351095&qH=44ee4b2066a82a77'
+#Amazon_URL = 'https://www.amazon.in/Canon-1500D-Digital-Camera-S18-55/dp/B07BS4TJ43/ref=dp_prsubs_1?pd_rd_w=7vYvR&content-id=amzn1.sym.37b67494-dbbc-4d44-83e6-6de40b4b120d&pf_rd_p=37b67494-dbbc-4d44-83e6-6de40b4b120d&pf_rd_r=GRZWNFVB2X2ARKP3A8VT&pd_rd_wg=P9FXv&pd_rd_r=42b28adc-fec5-407b-bb22-fc9c169ddacc&pd_rd_i=B07BS4TJ43&psc=1'
 
-Flipkart_URL = 'https://www.flipkart.com/canon-eos-3000d-dslr-camera-1-body-18-55-mm-lens/p/itm6f665fea97bc2?pid=CAMF3DHJURPEMNRN&lid=LSTCAMF3DHJURPEMNRN5POEJU&marketplace=FLIPKART&q=canon+1200d+camera&store=jek%2Fp31%2Ftrv&srno=s_1_1&otracker=AS_QueryStore_OrganicAutoSuggest_1_8_na_na_na&otracker1=AS_QueryStore_OrganicAutoSuggest_1_8_na_na_na&fm=organic&iid=1c742629-dbc8-4eae-b0c9-623d0d7c1772.CAMF3DHJURPEMNRN.SEARCH&ppt=hp&ppn=homepage&ssid=3c3nanvia80000001676980351095&qH=44ee4b2066a82a77'
-#Flipkart_URL = 'https://www.flipkart.com/google-pixel-4a-just-black-128-gb/p/itm023b9677aa45d?pid=MOBFUSBNAZGY7HQU&lid=LSTMOBFUSBNAZGY7HQUWHTF0C&marketplace=FLIPKART&q=pixel+4a&store=tyy%2F4io&srno=s_1_1&otracker=search&otracker1=search&fm=Search&iid=f4333c2a-bd28-4d14-a425-9031014ff94d.MOBFUSBNAZGY7HQU.SEARCH&ppt=sp&ppn=sp&ssid=qqnkai0qkw0000001677064038113&qH=614b192c242ae032'
-#Amazon_URL = 'https://www.amazon.in/Canon-EOS-3000D-Digital-18-55mm/dp/B07BRWY6XV/ref=sr_1_1?crid=264F3DGHOZHZP&keywords=canon+EOS+3000d+DSLR&qid=1676980439&sprefix=canon+eos+3000d+dslr%2Caps%2C321&sr=8-1'
-Amazon_URL = 'https://www.amazon.in/Canon-1500D-Digital-Camera-S18-55/dp/B07BS4TJ43/ref=dp_prsubs_1?pd_rd_w=7vYvR&content-id=amzn1.sym.37b67494-dbbc-4d44-83e6-6de40b4b120d&pf_rd_p=37b67494-dbbc-4d44-83e6-6de40b4b120d&pf_rd_r=GRZWNFVB2X2ARKP3A8VT&pd_rd_wg=P9FXv&pd_rd_r=42b28adc-fec5-407b-bb22-fc9c169ddacc&pd_rd_i=B07BS4TJ43&psc=1'
+Flipkart_URL = x
+Amazon_URL = y
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36", "Accept-Encoding":"gzip, deflate", "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "DNT":"1","Connection":"close", "Upgrade-Insecure-Requests":"1"}
 
@@ -63,9 +65,6 @@ Using get method from requests library we will s store the URL response.
 Flipkart_page = requests.get(Flipkart_URL, headers = headers)
 Amazon_page = requests.get(Amazon_URL, headers = headers)
 
-#print(Flipkart_page.content)
-#print(Amazon_page.content)
-
 """
 Everything contained in that webpage is now in the page object.
 In order to parse this (HTML)pages we will use Beautiful Soup (BS4) library. 
@@ -81,25 +80,32 @@ BS4 has some very useful functions which make traversing through tags very easy.
 You can through them here :
 In our case we will use find() and get_text() to get data.
 """
-#print(Flipkart_soup)
-#print(Amazon_soup)
-
-#Flipkart_soup = Flipkart_soup.prettify()
-#Amazon_soup =  Amazon_soup.prettify()
-
-#print(Flipkart_soup)
-#print(Amazon_soup)
 
 """
-With Inspect Element tool in browser you can look for HTML tags under which data is present.
-Copy id of the tag to navigate.
+With Inspect Element tool in browser you can look for HTML tags and their Id or classes under which data is present.
+Copy id or class of the tag to navigate.
 Use Screenshots.
 """
+
+"""
+Using find_all and get_text method from BS4 for fetching Flipkart title.
+"""
+
 Flipkart_Title = Flipkart_soup.find_all('span',attrs={"class":"B_NuCI"})[0].get_text()
 Flipkart_Title = Flipkart_Title.strip()
 
+"""
+Using find_all and get_text method from BS4 for fetching Flipkart title.
+"""
+
 Amazon_Title = Amazon_soup.find(id='productTitle').get_text()
 Amazon_Title = Amazon_Title.strip()
+
+
+"""
+Similarly using above mentioned functions fetching availability and depending on that fetching product prices.
+And if product is unavailable setting product price to 0.
+"""
 
 Flipkart_Availability = Flipkart_soup.find_all('div',attrs={"class":"_16FRp0"})
 if (len(Flipkart_Availability)==0):
@@ -110,7 +116,8 @@ Flipkart_Availability = Flipkart_Availability.strip()
 
 Amazon_Availability = Amazon_soup.find(id='availability').get_text()
 Amazon_Availability = Amazon_Availability.strip()
-#print(Amazon_Availability.strip())
+Amazon_Availability_Split = Amazon_Availability.lower().split()
+
 
 if (Flipkart_Availability == 'In stock'):
     Flipkart_Price = Flipkart_soup.find_all('div',attrs={"class":"_30jeq3 _16Jk6d"})[0].get_text()
@@ -121,7 +128,7 @@ else:
     Flipkart_Price = 0
 
 
-if (Amazon_Availability == 'In stock'):
+if ('out' not in Amazon_Availability_Split):
     Amazon_Price = Amazon_soup.find(id='corePriceDisplay_desktop_feature_div').get_text()
     Amazon_Price = Amazon_Price.strip()
     Amazon_Price = Amazon_Price.split('₹')[1]
@@ -129,28 +136,28 @@ if (Amazon_Availability == 'In stock'):
 else :
     Amazon_Price = 0
 
-#Amazon_Price = Amazon_soup.find(id='corePriceDisplay_desktop_feature_div').get_text()
-#print(Amazon_soup.find(id='outOfStock').get_text())
-#print(Amazon_Price)
-#print(Amazon_Title)
-#print(Amazon_Availability)
-#print(Amazon_Price)
-
-#print(Flipkart_Title)
-#print(Flipkart_Availability)
-#print(Flipkart_Price)
-
-
+"""
+Using Python's os.path library which has some useful functions for pathnames to check if file is already created or not.
+Using Python's datetime library to get timestamp at which program was run. This timestamo will be added in CSV file generated
+to store product prices over the period.
+"""
 file_path = r'D:/ProjectWebScraper/DiscountAlert.csv'
 
 flag = os.path.isfile(file_path)
+
 filename = "DiscountAlert.csv"
 current_datetime = datetime.datetime.now()
 
-print(current_datetime)
-
 Amazon_price_list = []
 Flipkart_price_list = []
+
+"""
+If CSV file already exists then data from file is fetched to find minimum price of the product over the period and if product price scraped now
+is equal or less than that minimum price then and email alert is sent to the user.
+"""
+
+
+
 
 if flag:
     with open(filename, 'r') as csvfile:
@@ -169,24 +176,6 @@ if flag:
     if '0' in Amazon_price_list:
         Amazon_price_list.remove('0')
 
-    """if (Amazon_Price <= min(Amazon_price_list)) and (Amazon_Price != 0) :
-        subject = "Alert!! Maybe you can buy these products now."
-        body = str(Amazon_Title) + " is " + str(Amazon_Availability).lower() + " now " + "and at a minimum price of " + str(Amazon_Price) + "."
-        send_email(subject, body, sender, recipients, password)
-
-        print("Amazon Min Price:")
-        print(Amazon_Price)
-    
-
-
-    if (Flipkart_Price <= min(Flipkart_price_list)) and (Flipkart_Price != 0):
-        subject = "Alert!! Maybe you can buy these products now."
-        body = str(Flipkart_Title) + " is " + str(Flipkart_Availability).lower() + " now " + "and at a minimum price of " + str(Flipkart_Price) + "."
-        send_email(subject, body, sender, recipients, password)
-
-        print("Flipkart Min Price:")
-        print(Flipkart_Price)
-    """
     if ((Amazon_Price <= min(Amazon_price_list)) and (Amazon_Price != 0)) or ((Flipkart_Price <= min(Flipkart_price_list)) and (Flipkart_Price != 0)):
 
         if Amazon_Price < Flipkart_Price:
@@ -205,14 +194,11 @@ else:
     print("No data")
 
 
-
-#print(Amazon_price_list)
-#print(Flipkart_price_list)
-
-
-
-
-
+"""
+If CSV is not present i.e there is no prior data or program is being run first time then the file will be created and data will 
+be appended to the file.
+Else data will be directly appended to the CSV file.
+"""
 
 
 
@@ -222,13 +208,14 @@ row = [str(current_datetime),Amazon_Title,Flipkart_Title,Amazon_Price,Flipkart_P
 
 
 
+
 if flag:
     with open(filename, 'a', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
 
         csvwriter.writerow(row)
 
-    #print(flag)
+    
 else:
 
     with open(filename, 'w', newline='') as csvfile:
@@ -240,7 +227,7 @@ else:
 
         csvwriter.writerow(row)
 
-    #print(flag)
+    
 
 
 
